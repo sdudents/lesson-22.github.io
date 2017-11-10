@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lesson 22</title>
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/css reset.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+<body>
+
+	<header class="header">
+		<div class="header_block">
+			<a href="#" class="register">уже есть аккаунт?</a>
+			<a href="#" class="join">вход<i class="fa fa-rocket" aria-hidden="true"></i></a>
+		</div>
+
+	</header>
+	<main class="main">
+		<div class="main_block">
+			<img src="img/logo.png" alt="logo">
+		</div>
+		<div class="block_input">
+			<form id="form" role="form" action="mail.php" method="POST">
+				<input type="hidden" name="whatever">
+				<div class="form-group">
+			    <input type="text" class="form-control" name="userName" id="exampleInputUser1" placeholder="Имя пользователя">
+			  </div>
+			  <div class="form-group">
+			    <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Email">
+			  </div>
+			  	<div class="form-group">
+			    <input type="text" class="form-control" name="phone" id="exampleInputNumber1" placeholder="Номер телефона">
+			  </div>
+			  <div class="form-group">
+			    <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Пароль">
+			  </div>
+			  <textarea name="user_messege" class="description" cols="30" rows="10"></textarea>
+			  <button type="submit" class="btn btn-primary">Регистрация</button>
+
+			</form>
+		</div>
+
+		        <div class="modal fade" id="modal-thanks" data-backdrop="true" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Спасибо за заявку!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Мы с Вами свяжемся в ближайшее время!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть окно</button>
+                    </div>
+                </div>  
+            </div>
+        </div>
+	</main>
+	<footer class="footer">
+		<div class="target">
+			<span>блог</span>
+			<p>связаться с нами</p>
+		</div>
+		<div class="data">
+			<p><span>&copy;</span>2012-MYSITE</p>
+		</div>
+	</footer>
+	<script src="js/jquery-3.2.1.min.js"></script>
+
+	</script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script>
+			jQuery(function($){
+		   $("#exampleInputNumber1").mask("+7 (999) 999-9999");
+		});
+	</script>
+	<script src="js/validate.js"></script>
+	<script>
+		$('#form').validate({
+			rules: {
+				userName : {
+					required: true,
+					minlength: 2
+				},
+				email: {
+					required: true, 
+					minlength: 2,
+					email: true
+				},
+				phone: {
+					required: true,
+					minlength: 10,
+				},
+				password: {
+					required: true, 
+					minlength: 6,
+				}
+			},
+			messages: {
+				userName: {
+				required: 'Это поле обязательно',
+				minlength: 'Не менее 2 символов'	
+				},
+				email: {
+				required: 'Это поле обязательно',
+				minlength: 'Не менее 2 символов',
+				email: 'Введите корректный email'	
+				},
+				phone: {
+					required: 'Введите номер',
+					minlength: 'Введите номер без 8'
+				},
+				password: {
+					required: 'Введите пароль',
+					minlength: 'Введите пароль из 6 значении'
+				}
+			}
+		})
+	</script>
+	    <script>
+       $(document).ready(function() {
+    $("#form").submit(function() {
+        $.ajax({
+            type: "POST",
+            url: "mail.php",
+            data: $(this).serialize()
+        }).done(function() {
+            $(this).find("input").val("");
+            $('#modal-thanks').modal('show');
+            $("#form").trigger("reset");
+        });
+        return false;
+    });
+    
+});
+    </script>
+</body>
+</html>

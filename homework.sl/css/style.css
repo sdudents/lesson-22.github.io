@@ -1,0 +1,119 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('../fonts/fontawesome-webfont.eot');
+  src: url('../fonts/WebFont.eot?iefix') format('eot');
+  src: url('../fonts/FontAwesome.otf') format('otf'), url('../fonts/fontawesome-webfont.woff') format('woff'), url('../fonts/fontawesome-webfont.ttf') format('truetype'), url('../fonts/fontawesome-webfont.svg') format('svg');
+}
+body {
+  background: url(../img/bg.png) no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+}
+.header {
+  padding-top: 30px;
+  height: 100px;
+}
+.header .header_block {
+  float: right;
+  width: 500px;
+  text-align: center;
+}
+.header .header_block a {
+  text-decoration: none;
+  font-size: 23px;
+  color: #fff;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+.header .header_block .join {
+  border: solid 2px;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+.header .header_block .fa {
+  font-size: 15px;
+  color: #6400C1;
+  margin-left: 10px;
+  position: relative;
+}
+.main .main_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 180px;
+}
+.main .block_input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 60px;
+}
+.main .block_input form {
+  width: 260px;
+}
+.main .block_input form .description {
+  border-radius: 5px;
+  border-color: red;
+  width: 260px;
+}
+.main .block_input .btn {
+  width: 260px;
+}
+.main .block_input #exampleInputPassword1::before {
+  font-family: "FontAwesome";
+  content: "\f007";
+  position: absolute;
+  font-size: 30px;
+  color: black;
+}
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-top: 75px;
+}
+.footer .target {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+}
+.footer .target span {
+  border-right: solid;
+  padding-right: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.footer .target p {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 10px;
+}
+.footer .data span {
+  margin-right: 5px;
+}
+.footer .data p {
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.error {
+  border: solid red 1px;
+}
+label.error {
+  position: absolute;
+  border: none;
+  color: red;
+}
